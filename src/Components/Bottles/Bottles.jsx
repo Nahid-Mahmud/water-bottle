@@ -14,7 +14,7 @@ const Bottles = () => {
   // fetching data using useEffect
   useEffect(() => {
     fetch(
-      "https://raw.githubusercontent.com/Nahid-Mahmud/water-bottle/main/public/bottles.json"
+      "https://raw.githubusercontent.com/Nahid-Mahmud/water-bottle/main/bottles.json"
     ) //fetch url here
       .then((res) => res.json())
       .then((data) => setBottles(data));
