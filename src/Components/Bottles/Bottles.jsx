@@ -13,7 +13,9 @@ const Bottles = () => {
   const [cart, setCart] = useState([]);
   // fetching data using useEffect
   useEffect(() => {
-    fetch("../../../public/bottles.json") //fetch url here
+    fetch(
+      "https://raw.githubusercontent.com/Nahid-Mahmud/water-bottle/main/public/bottles.json"
+    ) //fetch url here
       .then((res) => res.json())
       .then((data) => setBottles(data));
   }, []);
@@ -43,15 +45,18 @@ const Bottles = () => {
 
   const handleRomoveFromCart = (id) => {
     //visual remove
-    const remainingcart = cart.filter(bottle => bottle.id !== id)
-    setCart(remainingcart)
+    const remainingcart = cart.filter((bottle) => bottle.id !== id);
+    setCart(remainingcart);
     // remove from local store
-    remveFromLocalSorage(id)
+    remveFromLocalSorage(id);
   };
 
   return (
     <div>
-      <p className="text-lg text-center"> Availabe Bottles  : {bottles.length}</p>
+      <p className="text-lg text-center">
+        {" "}
+        Availabe Bottles : {bottles.length}
+      </p>
 
       <Cart handleRomoveFromCart={handleRomoveFromCart} cart={cart}></Cart>
       <div className="lg:grid lg:grid-cols-3 md:grid md:grid-cols-2 flex flex-col mx-auto gap-5 max-w-[90vw] my-5">
